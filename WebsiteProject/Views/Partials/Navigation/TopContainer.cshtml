@@ -1,0 +1,21 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web.Models
+
+@{ 
+    var imgUrl = "/images/pexels-photo-1402787.jpeg";
+    var prop = Model.GetProperty("PresentationImage");
+    if (prop != null && prop.Value() != null)
+    {
+        imgUrl = prop.Value<IPublishedContent>().GetCropUrl(1920, 191, "umbracoFile", null, null, ImageCropMode.Crop);
+    }
+}
+
+    <section class="main__middle__container">
+        <div class="row no_padding no-margin nothing nice__title blog text-center" style="background: url('@imgUrl') no-repeat;">
+            <div class="container">
+                <h2>Full Width</h2>
+                <span class="sep"></span>
+                <p>Aliquam imperdiet quam ligula.</p>
+            </div>
+        </div>
+    </section>
