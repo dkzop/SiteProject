@@ -12,24 +12,15 @@
         </div>
     </div>
     @Html.Partial("~/Views/Partials/Navigation/HomeTopWideImage.cshtml")
+
+
     <div class="row no-margin grey-info-block text-center">
-        <div class="container">
-            <div class="col-md-6">
-                <h3>Commodo id natoque malesuada sollicitudin elit suscipit.</h3>
-                <p class="small-paragraph light">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
-                <img src="~/images/Testing_in_Progress.gif" alt="pic" class="img-rounded img-responsive">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-                <p><a href="#" class="btn btn-default btn-lg">Learn more</a></p>
-            </div>
-            <div class="col-md-6">
-                <h3>Aliquam luctus et mattis lectus Nam nec turpis consequat.</h3>
-                <p class="small-paragraph light">Praesent semper mod quis eget mi. Etiam eu ante risus.</p>
-                <img src="images/content__images/image_460x200.jpg" alt="pic" class="img-rounded img-responsive">
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-                <p><a href="#" class="btn btn-default btn-lg">Learn more</a></p>
-            </div>
-        </div>
+        @Html.Partial("~/Views/Partials/Navigation/HomeLearnMoreLeftImage.cshtml")
+
+        @Html.Partial("~/Views/Partials/Navigation/HomeLearnMoreRightImage.cshtml")
     </div>
+
+
     <div class="row text-center no-margin nothing red__line testimonials">
         <div class="container headings">
             <h2 class="page_title">TESTIMONIALS</h2>

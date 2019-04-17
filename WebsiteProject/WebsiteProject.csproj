@@ -513,6 +513,8 @@
     <Content Include="Views\MasterHome.cshtml" />
     <Content Include="Views\Partials\Navigation\HomeTopWideImage.cshtml" />
     <Content Include="Views\Partials\Navigation\HomeBottomWideImage.cshtml" />
+    <Content Include="Views\Partials\Navigation\HomeLearnMoreLeftImage.cshtml" />
+    <Content Include="Views\Partials\Navigation\HomeLearnMoreRightImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
