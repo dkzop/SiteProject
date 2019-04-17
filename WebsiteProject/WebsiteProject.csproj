@@ -511,6 +511,7 @@
     <Content Include="Views\Lingua.cshtml" />
     <Content Include="Views\Partials\Navigation\TopContainer.cshtml" />
     <Content Include="Views\MasterHome.cshtml" />
+    <Content Include="Views\Partials\Navigation\HomeContainers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
