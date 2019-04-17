@@ -1,0 +1,26 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web.Models
+@{
+    ViewBag.Title = "HomeContainers";
+}
+
+
+
+@{
+    var imgUrl = "/images/pexels-photo-1402787.jpeg";
+    var prop = Model.GetProperty("TopHomeImage");
+    if (prop != null && prop.Value() != null)
+    {
+        imgUrl = prop.Value<IPublishedContent>().GetCropUrl(1920, 191, "umbracoFile", null, null, ImageCropMode.Crop);
+    }
+}
+    <div class="row no_padding no-margin nothing nice__title text-center" style="background: url('@imgUrl') no-repeat">
+        <div class="container">
+            <h2>WHAT WE DO</h2>
+            <span class="sep"></span>
+            <p>Aliquam imperdiet quam ligula.</p>
+        </div>
+    </div>
+
+
+
