@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+@using Umbraco.Web.Models
+@{
+    ViewBag.Title = "Paragraph";
+}
+
+@{
+    var prop = Model.GetProperty("page_title");
+     = prop.Value<IPublishedContent>().GetCropUrl("Donec nec justo"); 
+}
+
+<div class="container headings">
+    <h1 class="page_title">Donec nec justo <span>eget felis facilisis</span> fermentum. </h1>
+    <p class="small-paragraph">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
+    <p><a class="btn btn-info btn-lg" href="#" role="button">Exemplo</a>
+</div>

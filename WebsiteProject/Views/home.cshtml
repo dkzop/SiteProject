@@ -1,23 +1,24 @@
-﻿
+﻿@model Umbraco.Web.Models.ContentModel
 @{
     Layout = "MasterHome.cshtml";
+    var title = Model.Content.Value<string>("title");
+    var exemple = Model.Content.Value<string>("exemple");
+    //var image = Model.Content.Value<WebImage>("image");
 }
 
 <section class="main__middle__container">
     <div class="row text-center no-margin nothing">
         <div class="container headings">
-            <h1 class="page_title">Donec nec justo <span>eget felis facilisis</span> fermentum. </h1>
-            <p class="small-paragraph">Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-            <p><a class="btn btn-info btn-lg" href="#" role="button">Exemplo</a>
+            <h1 class="page_title">@title </h1>
+            <p class="@title"</p>
+            <p><a class="btn btn-info btn-lg" href="#" role="button">@exemple</a>
         </div>
     </div>
-    @Html.Partial("~/Views/Partials/Navigation/HomeTopWideImage.cshtml")
-
-
+    @Html.Partial("HomeTopWideImage")
     <div class="row no-margin grey-info-block text-center">
-        @Html.Partial("~/Views/Partials/Navigation/HomeLearnMoreLeftImage.cshtml")
+        @Html.Partial("HomeLearnMoreLeftImage")
 
-        @Html.Partial("~/Views/Partials/Navigation/HomeLearnMoreRightImage.cshtml")
+        @Html.Partial("HomeLearnMoreRightImage")
     </div>
 
 
@@ -49,11 +50,11 @@
             </div>
         </div>
     </div>
-    @Html.Partial("~/Views/Partials/Navigation/HomeBottomWideImage.cshtml")
+    @Html.Partial("HomeBottomWideImage")
 
     <div class="row  three__blocks text-center no_padding no-margin">
-        @Html.Partial("~/Views/Partials/Navigation/BottomLeftImage.cshtml")
-        @Html.Partial("~/Views/Partials/Navigation/BottomCenterImage.cshtml")
-        @Html.Partial("~/Views/Partials/Navigation/BottomRightImage.cshtml")
+        @Html.Partial("BottomLeftImage")
+        @Html.Partial("BottomCenterImage")
+        @Html.Partial("BottomRightImage")
     </div>
 </section>
