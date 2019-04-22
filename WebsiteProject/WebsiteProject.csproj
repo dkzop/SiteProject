@@ -515,6 +515,9 @@
     <Content Include="Views\Partials\Navigation\HomeBottomWideImage.cshtml" />
     <Content Include="Views\Partials\Navigation\HomeLearnMoreLeftImage.cshtml" />
     <Content Include="Views\Partials\Navigation\HomeLearnMoreRightImage.cshtml" />
+    <Content Include="Views\Partials\Navigation\BottomLeftImage.cshtml" />
+    <Content Include="Views\Partials\Navigation\BottomCenterImage.cshtml" />
+    <Content Include="Views\Partials\Navigation\BottomRightImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
