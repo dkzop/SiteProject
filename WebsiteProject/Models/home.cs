@@ -17,6 +17,7 @@ namespace WebsiteProject.Models
 {
     public class Home : ContentModel
     {
+        //TopHome
         public string HomeTitle
         {
             get { return Content.Value<string>("homeTitle"); }
@@ -26,7 +27,7 @@ namespace WebsiteProject.Models
         {
             get { return Content.Value<string>("homeTopButtom"); }
         }
-
+        //SecondBlockHome
         public string TitleLeft
         {
             get { return Content.Value<string>("titleLeft"); }
@@ -66,7 +67,7 @@ namespace WebsiteProject.Models
         {
             get { return Content.Value<string>("rightButton"); }
         }
-
+        //SliderHome
         public string SliderTitle
         {
             get { return Content.Value<string>("sliderTitle"); }
@@ -106,7 +107,51 @@ namespace WebsiteProject.Models
         {
             get { return Content.Value<string>("sliderauthor_3"); }
         }
+        //BottomBlockHome
+        public string BottomLeftTitle
+        {
+            get { return Content.Value<string>("bottomLeftTitle"); }
+        }
 
+        public string BottomLeftText
+        {
+            get { return Content.Value<string>("bottomLeftText"); }
+        }
+
+        public string BottomLeftButton
+        {
+            get { return Content.Value<string>("bottomLeftButton"); }
+        }
+
+        public string BottomCenterTitle
+        {
+            get { return Content.Value<string>("bottomLeftTitle"); }
+        }
+
+        public string BottomCenterText
+        {
+            get { return Content.Value<string>("bottomCenterText"); }
+        }
+
+        public string BottomCenterButton
+        {
+            get { return Content.Value<string>("bottomLCenterButton"); }
+        }
+
+        public string BottomRightTitle
+        {
+            get { return Content.Value<string>("bottomRightTitle"); }
+        }
+
+        public string BottomRightText
+        {
+            get { return Content.Value<string>("bottomRightText"); }
+        }
+
+        public string BottomRightButton
+        {
+            get { return Content.Value<string>("bottomRightButton"); }
+        }
 
         public MvcHtmlString LearnMoreLeft
         {
