@@ -11,7 +11,7 @@
     var centerRightFooterText = Model.Content.Value<string>("centerRightFooterText");
     var rightFooterTitle = Model.Content.Value<string>("rightFooterTitle");
     var adress = Model.Content.Value<string>("adress");
-    var cityPostalCode = Model.Content.Value<string>("cityPostalCode");
+    var cityandPostalCode = Model.Content.Value<string>("cityandPostalCode");
     var country = Model.Content.Value<string>("country");
     var phoneNumber = Model.Content.Value<string>("phoneNumber");
     var fax = Model.Content.Value<string>("fax");
@@ -53,7 +53,7 @@
                 <h3>Social</h3>
                 <p>
                     @adress<br />
-                    @cityPostalCode<br />
+                    @cityandPostalCode<br />
                     @country<br />
                     <br />
                     @phoneNumber<br />

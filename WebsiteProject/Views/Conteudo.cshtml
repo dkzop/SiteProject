@@ -1,6 +1,7 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
+﻿@model Umbraco.Web.Models.ContentModel
 @{
     Layout = "Master.cshtml";
+
 }
 
 
@@ -11,8 +12,8 @@
     <section>
 
 
-        @Html.GetGridHtml(Model, "grid")
+        @Html.GetGridHtml(Model.Content, "grid")
 
-        </section>
+    </section>
 </body>
 </html>
