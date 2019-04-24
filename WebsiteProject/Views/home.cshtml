@@ -28,10 +28,15 @@
     var sliderauthor_2 = Model.Content.Value<string>("sliderauthor_2");
     var sliderText_3 = Model.Content.Value<string>("sliderText_3");
     var sliderauthor_3 = Model.Content.Value<string>("sliderauthor_3");
-
-
-
-
+    var bottomLeftTitle = Model.Content.Value<string>("bottomLeftTitle");
+    var bottomLeftText = Model.Content.Value<string>("bottomLeftText");
+    var bottomLeftButton = Model.Content.Value<string>("bottomLeftButton");
+    var bottomCenterTitle = Model.Content.Value<string>("bottomCenterTitle");
+    var bottomCenterText = Model.Content.Value<string>("bottomCenterText");
+    var bottomCenterButton = Model.Content.Value<string>("bottomCenterButton");
+    var bottomRightTitle = Model.Content.Value<string>("bottomRightTitle");
+    var bottomRightText = Model.Content.Value<string>("bottomRightText");
+    var bottomRightButton = Model.Content.Value<string>("bottomRightButton");
 }
 <section class="main__middle__container">
     <div class="row text-center no-margin nothing">
@@ -94,22 +99,22 @@
 
     <div class="row  three__blocks text-center no_padding no-margin">
         <div class="col-md-4">
-            <h3><a href="#">Modern Design</a></h3>
+            <h3><a href="#">@bottomLeftTitle</a></h3>
             @bottomLeft
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
-            <p><a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
+            <p>@bottomLeftText</p>
+            <p><a class="btn btn-info btn-md" href="#" role="button">@bottomLeftButton</a>
         </div>
         <div class="col-md-4">
-            <h3><a href="#">Modern Design</a></h3>
+            <h3><a href="#">@bottomCenterTitle</a></h3>
             @bottomCenter
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
-            <p><a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
+            <p>@bottomCenterText</p>
+            <p><a class="btn btn-info btn-md" href="#" role="button">@bottomCenterButton</a>
         </div>
         <div class="col-md-4">
-            <h3><a href="#">Modern Design</a></h3>
+            <h3><a href="#">@bottomRightTitle</a></h3>
             @bottomRight
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
-            <p><a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
+            <p>@bottomRightText</p>
+            <p><a class="btn btn-info btn-md" href="#" role="button">@bottomRightButton</a>
         </div>
     </div>
 </section>

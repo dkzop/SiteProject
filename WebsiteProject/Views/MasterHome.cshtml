@@ -1,5 +1,4 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
-@using Umbraco.Web.Models
+﻿@model Umbraco.Web.Models.ContentModel
 @{
     ViewBag.Title = "MasterHome";
 }
@@ -22,7 +21,6 @@
         <![endif]-->
 </head>
 <body>
-
 
     @Html.Partial("~/Views/Partials/Navigation/TopNavigation.cshtml")
 
