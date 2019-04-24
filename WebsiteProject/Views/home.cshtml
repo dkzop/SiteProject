@@ -1,32 +1,72 @@
 ﻿@model Umbraco.Web.Models.ContentModel
+
+
 @{
     Layout = "MasterHome.cshtml";
     var title = Model.Content.Value<string>("title");
     var exemple = Model.Content.Value<string>("exemple");
-    //var image = Model.Content.Value<WebImage>("image");
-}
+    var learnMoreLeft = Model.Content.Value("learnMoreLeft");
+    var learnMoreRight = Model.Content.Value("learnMoreRight");
+    var bottomLeft = Model.Content.Value("bottomLeft");
+    var bottomCenter = Model.Content.Value("bottomCenter");
+    var bottomRight = Model.Content.Value("bottomRight");
+    var homeTitle = Model.Content.Value<string>("homeTitle");
+    var homeTopButton = Model.Content.Value<string>("homeTopButton");
+    var titleLeft = Model.Content.Value<string>("titleLeft");
+    var sub_titleLeft = Model.Content.Value<string>("sub_titleLeft");
+    var textLeft = Model.Content.Value<string>("textLeft");
+    var leftButton = Model.Content.Value<string>("leftButton");
+    var titleRight = Model.Content.Value<string>("titleRight");
+    var sub_titleRight = Model.Content.Value<string>("sub_titleRight");
+    var textRight = Model.Content.Value<string>("textRight");
+    var rightButton = Model.Content.Value<string>("rightButton");
+    var sliderTitle = Model.Content.Value<string>("sliderTitle");
+    var slider_subTitle = Model.Content.Value<string>("slider_subTitle");
+    var sliderText_1 = Model.Content.Value<string>("sliderText_1");
+    var sliderauthor_1 = Model.Content.Value<string>("sliderauthor_1");
+    var sliderText_2 = Model.Content.Value<string>("sliderText_2");
+    var sliderauthor_2 = Model.Content.Value<string>("sliderauthor_2");
+    var sliderText_3 = Model.Content.Value<string>("sliderText_3");
+    var sliderauthor_3 = Model.Content.Value<string>("sliderauthor_3");
 
+
+
+
+}
 <section class="main__middle__container">
     <div class="row text-center no-margin nothing">
         <div class="container headings">
-            <h1 class="page_title">@title </h1>
-            <p class="@title"</p>
-            <p><a class="btn btn-info btn-lg" href="#" role="button">@exemple</a>
+            <h1 class="page_title">@homeTitle</h1>
+            <p class="@title"></p>
+            <p><a class="btn btn-info btn-lg" href="#" role="button">@homeTopButton</a>
         </div>
     </div>
     @Html.Partial("HomeTopWideImage")
     <div class="row no-margin grey-info-block text-center">
-        @Html.Partial("HomeLearnMoreLeftImage")
+        <div class="col-md-6">
+            <h3>@titleLeft</h3>
+            <p class="small-paragraph light">@sub_titleLeft</p>
+            @learnMoreLeft
+            <p>@textLeft</p>
+            <p><a href="#" class="btn btn-default btn-lg">@leftButton</a></p>
+        </div>
 
-        @Html.Partial("HomeLearnMoreRightImage")
+
+        <div class="col-md-6">
+            <h3>@titleRight</h3>
+            <p class="small-paragraph light">@sub_titleRight</p>
+            @learnMoreRight
+            <p>@textRight</p>
+            <p><a href="#" class="btn btn-default btn-lg">@rightButton</a></p>
+        </div>
     </div>
 
 
     <div class="row text-center no-margin nothing red__line testimonials">
         <div class="container headings">
-            <h2 class="page_title">TESTIMONIALS</h2>
+            <h2 class="page_title">@sliderTitle</h2>
             <span class="sep"></span>
-            <p class="small-paragrapher"><small>Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</small></p>
+            <p class="small-paragrapher"><small>@slider_subTitle</small></p>
             <div id="myCarousel2" class="carousel slide carousel-fade" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
@@ -35,16 +75,16 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <p class="small-paragraph">"Quisque tristique sem ut lacus pulvinar sodales. Praesent ultricies sed suscipit tincidunt. Pellentesque eros dui, interdum vel elit vel. Nunc semper mauris sed eros accumsan, quis viverra. Cras sed leo non sem dictum."</p>
-                        <p class="small-paragraph"><small>John Smith, Developer</small></p>
+                        <p class="small-paragraph">@sliderText_1</p>
+                        <p class="small-paragraph"><small>@sliderauthor_1</small></p>
                     </div>
                     <div class="item">
-                        <p class="small-paragraph">"Donec non faucibus quam. Proin sagittis lectus vitae dapibus pellentesque. Morbi at magna pellentesque, vulputate nisl nec. Donec non faucibus quam. Integer non venenatis nunc."</p>
-                        <p class="small-paragraph"><small>Daniel Stone, Manager</small></p>
+                        <p class="small-paragraph">@sliderText_2</p>
+                        <p class="small-paragraph"><small>@sliderauthor_2</small></p>
                     </div>
                     <div class="item">
-                        <p class="small-paragraph">"Cras sed leo non sem dictum vulputate nec a nisi. Aliquam erat volutpat. Vivamus facilisis purus eu cursus dictum. Aliquam rutrum est sed purus elementum. Nunc condimentum est in nisi dictum."</p>
-                        <p class="small-paragraph"><small>Alison Parks, Sales</small></p>
+                        <p class="small-paragraph">@sliderText_3</p>
+                        <p class="small-paragraph"><small>@sliderauthor_3</small></p>
                     </div>
                 </div>
             </div>
@@ -53,8 +93,23 @@
     @Html.Partial("HomeBottomWideImage")
 
     <div class="row  three__blocks text-center no_padding no-margin">
-        @Html.Partial("BottomLeftImage")
-        @Html.Partial("BottomCenterImage")
-        @Html.Partial("BottomRightImage")
+        <div class="col-md-4">
+            <h3><a href="#">Modern Design</a></h3>
+            @bottomLeft
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+            <p><a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
+        </div>
+        <div class="col-md-4">
+            <h3><a href="#">Modern Design</a></h3>
+            @bottomCenter
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+            <p><a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
+        </div>
+        <div class="col-md-4">
+            <h3><a href="#">Modern Design</a></h3>
+            @bottomRight
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. </p>
+            <p><a class="btn btn-info btn-md" href="#" role="button">Learn more</a>
+        </div>
     </div>
 </section>
