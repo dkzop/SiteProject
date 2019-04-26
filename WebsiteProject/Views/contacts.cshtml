@@ -1,6 +1,15 @@
 ﻿@model Umbraco.Web.Models.ContentModel
 @{
     Layout = "Master.cshtml";
+    var adress = Model.Content.Value("adress");
+    var phoneNumber = Model.Content.Value("phoneNumber");
+    var fax = Model.Content.Value("fax");
+    var title = Model.Content.Value("title");
+    var entryText = Model.Content.Value("entryText");
+    var rightTitle = Model.Content.Value("rightTitle");
+    var rightText = Model.Content.Value("rightText");
+
+
 }
 
 <section class="recent-posts">
@@ -8,9 +17,9 @@
         <iframe width="100%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=&amp;aq=&amp;sll=37.422023,-122.084337&amp;sspn=0.00357,0.008229&amp;ie=UTF8&amp;ll=37.421981,-122.084531&amp;spn=0.001785,0.004115&amp;t=m&amp;z=18&amp;output=embed"></iframe>
         <div class="row">
             <div class="col-md-8">
-                <h3>Send us a message</h3>
+                <h3>@title</h3>
                 <hr>
-                <p>Our friendly customer service representatives are committed to answering all your questions and meeting any need you may have. We would love to hear from you! Please fill out the form below so we may assist you.</p>
+                <p>@entryText</p>
                 <br />
                 <p id="feedback"></p>
                 <form role="form" id="contact-form" name="contact-form" method="post" action="" class="contact-form">
@@ -34,13 +43,14 @@
                 </form>
             </div>
             <div class="col-md-4">
-                <h3>Get in touch with us</h3>
+                <h3>@rightTitle</h3>
                 <hr>
-                <p>Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.</p>
-                <p>Donec nec justo eget felis facilisis fermentum. Aliquam porttitor mauris sit amet orci. Aenean dignissim pellentesque felis.</p>
-                <p class="black-text"><span class="orange">Address:</span> 123 Street, Fremont, CA, USA</p>
-                <p class="black-text"><span class="orange">Telephone:</span> 866-123-4555</p>
-                <p class="black-text"><span class="orange">Fax:</span> 866-111-222-3455</p>
+                @rightText
+                <br />
+                <br />
+                <p class="black-text"><span class="orange">Address:</span> @adress</p>
+                <p class="black-text"><span class="orange">Telephone:</span> @phoneNumber</p>
+                <p class="black-text"><span class="orange">Fax:</span> @fax</p>
             </div>
         </div>
     </div>

@@ -1,88 +1,73 @@
-﻿@{
+﻿@model Umbraco.Web.Models.ContentModel
+
+@{
     Layout = "Master.cshtml";
+    var image1 = Model.Content.Value<IPublishedContent>("image1").Url;
+    var imag1text = Model.Content.Value<string>("imag1text");
+    var image2 = Model.Content.Value<IPublishedContent>("image2").Url;
+    var image2text = Model.Content.Value<string>("image2text");
+
 }
 
 
-<head>
-    <title>Reponsive HTML Template</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
-    <link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
-    <link href="~/css/style.css" rel="stylesheet">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-          <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-        <![endif]-->
-</head>
-<body>
-    <section>
-        <div class="container">
-            <div id="portfolio" class="row no_padding title__block nothing no-margin">
-                <ul class="list-unstyled controls">
-                    <li class="filter" data-filter="all">Show All</li>
-                    <li class="filter" data-filter="webdesign">Web Design</li>
-                    <li class="filter" data-filter="printing">Printing</li>
-                    <li class="filter" data-filter="development">We Development</li>
-                    <li class="filter" data-filter="seo">SEO Optimization</li>
-                </ul>
-                <ul id="Grid" class="gallery">
-                    <li class="mix webdesign col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="~/images/aerlis.png" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix printing col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="~/images/Testing_in_Progress.gif" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix development col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix seo col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix seo col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix development col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix printing col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix development col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix printing col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix webdesign col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix seo col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                    <li class="mix webdesign col-sm-4"> <a href="images/gallery/image_1200x625.jpg"><img alt="" src="images/gallery/image_1200x625.jpg" class="img-responsive"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
-                </ul>
+<!-- WORK -->
+<section id="work" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <br />
+                    <br />
+                    <h2><font color="#000000">Our gallery</font></h2>
+                </div>
             </div>
-            <h2>Portfolio Text</h2>
-            <hr>
-            <div class="one_third">
-                <h4>1/3</h4>
-                <p>Donec metus leo, elementum at ultrices ac, dapibus at justo. Donec tristique hendrerit dui vitae lacinia. Suspendisse ante ligula, adipiscing porta aliquam et, rutrum nec lectus. Nulla erat risus, molestie non dapibus ac, fermentum vitae felis</p>
-            </div>
-            <div class="one_third">
-                <h4>1/3</h4>
-                <p>Donec metus leo, elementum at ultrices ac, dapibus at justo. Donec tristique hendrerit dui vitae lacinia. Suspendisse ante ligula, adipiscing porta aliquam et, rutrum nec lectus. Nulla erat risus, molestie non dapibus ac, fermentum vitae felis</p>
-            </div>
-            <div class="one_third column-last">
-                <h4>1/3</h4>
-                <p>Donec metus leo, elementum at ultrices ac, dapibus at justo. Donec tristique hendrerit dui vitae lacinia. Suspendisse ante ligula, adipiscing porta aliquam et, rutrum nec lectus. Nulla erat risus, molestie non dapibus ac, fermentum vitae felis</p>
-            </div>
-            <div class="dc_clear"></div>
             <br />
             <br />
-            <br />
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <img src="@image1" class="img-responsive" alt="Work">
+
+                    <div class="work-info">
+                        <h3>@imag1text</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <img src="@image2" class="img-responsive" alt="Work">
+
+                    <div class="work-info">
+                        <h3>@image2text</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    @*<img src="@imagethree" class="img-responsive" alt="Work">*@
+
+                    <div class="work-info">
+                        @*<h3>@imagethreetext</h3>*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    @*<img src="@imagefour" class="img-responsive" alt="Work">*@
+
+                    <div class="work-info">
+                        @*<h3>@imagefourtext</h3>*@
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </section>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script type="text/javascript" src="~/scripts/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="~/scripts/jquery.mixitup.min.js"></script>
-    <script src="~/scripts/jquery.magnific-popup.js"></script>
-    <script src="~/scripts/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            // Start work gallery
-            $('#Grid').mixitup();
-        });
-        $('.gallery').each(function () { // the containers for all your galleries
-            $(this).magnificPopup({
-                delegate: 'a', // the selector for gallery item
-                type: 'image',
-                gallery: {
-                    enabled: true
-                }
-            });
-        });
-    </script>
-</body>
+    </div>
+</section>
