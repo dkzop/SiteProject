@@ -1868,3 +1868,9 @@ ul.dropdown-menu {
     margin-top: -10%;
     margin-bottom: -10%;
 }
+
+/*Content Page*/
+
+.content_text{
+    float: right;
+}
