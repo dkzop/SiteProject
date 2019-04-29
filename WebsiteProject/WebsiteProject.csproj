@@ -470,8 +470,10 @@
     <Content Include="Views\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AboutUs.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\home.cs" />
+    <Compile Include="Models\Images.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
