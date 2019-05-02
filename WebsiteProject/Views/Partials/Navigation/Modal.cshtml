@@ -1,6 +1,8 @@
-﻿
+﻿@using System.Web.Mvc.Html
+@inherits Umbraco.Web.Mvc.UmbracoViewPage
+
 @{
-    ViewBag.Title = "Modal";
+    ViewBag.Title = "ModalSignInUp";
 }
 
 <!-- MODAL -->
@@ -20,24 +22,20 @@
 
                         <div class="col-md-12 col-sm-12">
                             <div class="modal-title">
-                                <h2>Exemplo</h2>
+                                <h2>Test</h2>
                             </div>
 
                             <!-- NAV TABS -->
                             <ul class="nav nav-tabs" role="tablist">
-                                <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Criar uma Conta</a></li>
-                                <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Iniciar Sessão</a></li>
+                                <li class="active"><a href="#sign_up" aria-controls="sign_up" role="tab" data-toggle="tab">Create an account</a></li>
+                                <li><a href="#sign_in" aria-controls="sign_in" role="tab" data-toggle="tab">Sign In</a></li>
                             </ul>
 
                             <!-- TAB PANES -->
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="sign_up">
-                                    <form action="#" method="post">
-                                        <input type="text" class="form-control" name="nome" placeholder="Nome" required>
-                                        <input type="tel" class="form-control" name="telefone" placeholder="telefone" required>
-                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
-                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
-                                        <input type="submit" class="form-control" name="submit" value="Submit Button">
+                                    <form method="post" action="">
+                                        @Html.Partial("~/Views/Partials/Register/Register.cshtml", new WebsiteProject.Models.RegisterModel())
                                     </form>
                                 </div>
 
@@ -59,4 +57,3 @@
         </div>
     </div>
 </section>
-

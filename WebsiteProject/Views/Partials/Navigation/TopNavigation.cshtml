@@ -4,7 +4,10 @@
     var site = Model.Root();
     var selection = site.Children.Where(x => x.IsVisible());
 }
+
+
 @Html.Partial("~/Views/Partials/Navigation/Modal.cshtml")
+
 
 <header class="main__header">
     <div class="container">
@@ -15,13 +18,13 @@
             </div>
             <div class="navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                        @foreach (var item in selection)
-                        {
-                            <li>
+                    @foreach (var item in selection)
+                    {
+                        <li>
                             <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
-                            </li>
-                        }
-                        <li class="section-btn"><a href="#" data-toggle="modal" data-target="#modal-form">Sign in / Join</a></li>
+                        </li>
+                    }
+                    <li class="section-btn"><a href="#" data-toggle="modal" data-target="#modal-form">Sign in / Join</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

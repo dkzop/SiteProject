@@ -422,7 +422,6 @@
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\Hello World.css" />
     <Content Include="css\magnific-popup.css" />
     <Content Include="css\style.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -470,10 +469,12 @@
     <Content Include="Views\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Models\AboutUs.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\home.cs" />
     <Compile Include="Models\Images.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -522,6 +523,9 @@
     <Content Include="Views\Partials\BottomLeftImage.cshtml" />
     <Content Include="Views\Partials\BottomCenterImage.cshtml" />
     <Content Include="Views\Partials\BottomRightImage.cshtml" />
+    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\Partials\Register\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
