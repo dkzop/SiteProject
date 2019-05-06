@@ -33,25 +33,17 @@ else
         @Html.ValidationSummary("Model", true)
 
         @Html.AntiForgeryToken()
-        <div class="form-control">
-            @Html.LabelFor(m => Model.Username)
-            @Html.TextBoxFor(m => Model.Username)
-            @Html.ValidationMessageFor(m => Model.Username)
-        </div>
         <br />
-        <div class="form-control">
-            @Html.LabelFor(m => Model.Password)
-            @Html.PasswordFor(m => Model.Password)
-            @Html.ValidationMessageFor(m => Model.Password)
-        </div>
-            <br />
-        <div class="form-control">
-            @Html.LabelFor(m => Model.Email)
-            @Html.TextBoxFor(m => Model.Email)
-            @Html.ValidationMessageFor(m => Model.Email)
-        </div>
-            <br />
-            <button class="form-control" type="submit">Create account</button>
+        @Html.TextBoxFor(m => Model.Username, htmlAttributes: new { @class = "form-control", @placeholder = "Username" })
+        @Html.ValidationMessageFor(m => Model.Username)
+        <br />
+        @Html.PasswordFor(m => Model.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Password" })
+        @Html.ValidationMessageFor(m => Model.Password)
+        <br />
+        @Html.TextBoxFor(m => Model.Username, htmlAttributes: new { @class = "form-control", @placeholder = "Email" })
+        @Html.ValidationMessageFor(m => Model.Email)
+        <br />
+        <button class="form-control" type="submit">Create account</button>
     </fieldset>
     }
 }

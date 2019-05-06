@@ -16,7 +16,7 @@ namespace WebsiteProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(Login model)
+        public ActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
@@ -30,6 +30,19 @@ namespace WebsiteProject.Controllers
                 }
             }
             return PartialView(model);
+        }
+        
+        public ActionResult Logout()
+        {
+            return PartialView("Logout", null);
+        }
+
+        public ActionResult SubmitLogout()
+        {
+            TempData.Clear();
+            Session.Clear();
+            FormsAuthentication.SignOut();
+            return RedirectToCurrentUmbracoPage();
         }
     }
 }
