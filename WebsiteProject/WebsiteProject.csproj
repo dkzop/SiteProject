@@ -469,11 +469,13 @@
     <Content Include="Views\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Models\AboutUs.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\home.cs" />
     <Compile Include="Models\Images.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -523,9 +525,10 @@
     <Content Include="Views\Partials\BottomLeftImage.cshtml" />
     <Content Include="Views\Partials\BottomCenterImage.cshtml" />
     <Content Include="Views\Partials\BottomRightImage.cshtml" />
-    <Content Include="Views\Login.cshtml" />
+    <Content Include="Views\login.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Partials\Register\Register.cshtml" />
+    <Content Include="Views\Logout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
