@@ -9,7 +9,6 @@ namespace WebsiteProject.Controllers
 {
     public class RegisterController : SurfaceController
     {
-
         [HttpGet]
         public ActionResult Register()
         {
@@ -22,10 +21,13 @@ namespace WebsiteProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                Membership.CreateUser(model.Username, model.Password, model.Email);
-                return Redirect("http://localhost:50161/home/");
+                var user = Membership.CreateUser(model.Username, model.Password, model.Email);
+                if (user != null)
+                {
+                    model.Success = true;
+                }
             }
-            return PartialView();
+            return PartialView(model);
         }
     }
 }

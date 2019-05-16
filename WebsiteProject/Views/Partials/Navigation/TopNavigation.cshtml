@@ -5,10 +5,7 @@
     var selection = site.Children.Where(x => x.IsVisible());
 }
 
-
 @Html.Partial("~/Views/Partials/Navigation/Modal.cshtml")
-
-
 <header class="main__header">
     <div class="container">
         <nav class="navbar navbar-default" role="navigation">
@@ -24,7 +21,18 @@
                             <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
                         </li>
                     }
-                    <li class="section-btn"><a href="#" data-toggle="modal" data-target="#modal-form">Sign in / Join</a></li>
+                    <li class="section-btn">
+                        <a href="#" data-toggle="modal" data-target="#modal-form">
+                            @if (!User.Identity.IsAuthenticated)
+                            {
+                                <text>  Sign in / Join</text>
+                            }
+                            else
+                            {
+                                <text>Profile</text>
+                            }
+                        </a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

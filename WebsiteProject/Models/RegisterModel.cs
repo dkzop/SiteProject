@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace WebsiteProject.Models
 {
@@ -19,8 +15,10 @@ namespace WebsiteProject.Models
 
         [Display(Name = "Email")]
         [Required]
+        [DataType(DataType.Password)]
         public string Email { get; set; }
 
-        public string ReturnUrl { get; set; }
+        public bool Success { get; set; }
+        
     }
 }

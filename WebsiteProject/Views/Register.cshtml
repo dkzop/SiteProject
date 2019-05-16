@@ -1,0 +1,49 @@
+﻿@using System.Web.Mvc.Html
+@using ClientDependency.Core.Mvc
+@using Umbraco.Web
+@using WebsiteProject.Controllers
+@model WebsiteProject.Models.RegisterModel
+
+
+@{
+
+
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js");
+    Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js");
+    Html.RequiresJs("https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js");
+
+}
+
+
+
+@if (Model.Success)
+{
+
+    <p>Registration succeeded.</p>
+}
+else
+{
+    using (Html.BeginUmbracoForm<RegisterController>("Register"))
+    {
+        <fieldset data-ajax="true" data-ajax-update="#sign_up">
+
+            @Html.ValidationSummary()
+
+            @Html.AntiForgeryToken()
+            @Html.TextBoxFor(m => m.Username, htmlAttributes: new { @class = "form-control", @placeholder = "Username" })
+            @Html.ValidationMessageFor(m => m.Username)
+            <br />
+
+            @Html.PasswordFor(m => m.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password)
+            <br />
+
+            @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control", @placeholder = "Email" })
+            @Html.ValidationMessageFor(m => m.Email)
+            <br />
+            <input type="submit" class="form-control" name="Register" value="Register">
+        </fieldset>
+    }
+}
