@@ -32,11 +32,8 @@
     @Html.PasswordFor(m => loginModel.Password, htmlAttributes: new { @class = "form-control", @placeholder = "Password" })
     @Html.ValidationMessageFor(m => loginModel.Password)
     @Html.ValidationSummary()
-    <button name="login" type="submit">Login</button>
+    <input type="submit" class="form-control" name="Log In" value="Log In">
+
 </fieldset>
     }
-}
-else
-{
-    Html.RenderAction("Logout", "Login");
 }

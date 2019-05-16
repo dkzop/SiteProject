@@ -456,8 +456,9 @@
     <Content Include="images\triangle.png" />
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
-    <Content Include="scripts\Hello World.js" />
+    <Content Include="scripts\app.js" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\Custom.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\jquery.magnific-popup.js" />
@@ -470,13 +471,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Models\AboutUs.cs" />
+    <Compile Include="Models\ChangePassword.cs" />
+    <Compile Include="Models\ChangeUsername.cs" />
     <Compile Include="Models\Footer.cs" />
     <Compile Include="Models\home.cs" />
     <Compile Include="Models\Images.cs" />
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\Person.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\Sexo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -512,7 +519,6 @@
     <Content Include="Views\home.cshtml" />
     <Content Include="Views\contacts.cshtml" />
     <Content Include="Views\Partials\Navigation\Modal.cshtml" />
-    <Content Include="Views\person.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Conteudo.cshtml" />
     <Content Include="Views\Lingua.cshtml" />
@@ -527,8 +533,9 @@
     <Content Include="Views\Partials\BottomRightImage.cshtml" />
     <Content Include="Views\login.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
-    <Content Include="Views\Partials\Register\Register.cshtml" />
+    <Content Include="Views\Register.cshtml" />
     <Content Include="Views\Logout.cshtml" />
+    <Content Include="Views\Profile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -541,6 +548,9 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Partials\Register\" />
+    <Folder Include="Views\Person\" />
+    <Folder Include="Views\Profile\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
