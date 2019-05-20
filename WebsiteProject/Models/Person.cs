@@ -9,15 +9,6 @@ namespace WebsiteProject.Models
 {
     public class PersonModel
     {
-        //public Person(IPublishedContent content) : base(content)
-        //{
-        //}
-
-        ////public Person()
-        ////{
-        ////    Umbraco.Web.Composing.Current.UmbracoContext.
-        ////    base(null);
-        ////}
 
         [Display(Name = "Primeiro e último Nome")]
         
@@ -48,12 +39,12 @@ namespace WebsiteProject.Models
         
         public Sexo SexoPessoa { get; set; }
 
-        [Display(Name = "Imagem")]
+        [Display(Name = "ImagemParaCarregar")]
 
-        public HttpPostedFileBase Imagem { get; set; }
+        public HttpPostedFileBase ImagemParaCarregar { get; set; }
 
-
-
+        [Display(Name = "ImagemUrl")]
+        public string ImagemUrl { get; set; }
 
     }
 }
