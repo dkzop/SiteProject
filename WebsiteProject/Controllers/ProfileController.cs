@@ -1,4 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using System.Web.Security;
 using Umbraco.Web.Mvc;
 using WebsiteProject.Models;
@@ -72,12 +76,34 @@ namespace WebsiteProject.Controllers
                 user.SetValue("cordoCabelo", personModel.CordoCabelo);
                 user.SetValue("cordeOlhos", personModel.CordeOlhos);
                 user.SetValue("sexo", personModel.SexoPessoa);
-                user.SetValue("imagem", personModel.Imagem);
+                if (personModel.ImagemParaCarregar != null)
+                {
+                    var newFileReference = Services.MediaService.CreateMedia("avatar", -1, "Image");
+                    if (!Valid(personModel.ImagemParaCarregar))
+                    {
+                        newFileReference.SetValue("umbracoFile", personModel.ImagemParaCarregar.InputStream);
+                        Services.MediaService.Save(newFileReference);
+
+                        user.SetValue("avatar", newFileReference.Id);
+                    }
+                }
+
                 Services.MemberService.Save(user);
-                return CurrentUmbracoPage();
             }
 
             return CurrentUmbracoPage();
+        }
+
+        private bool Valid(HttpPostedFileBase imagem)
+        {
+            var fileInfo = new FileInfo(imagem.FileName);
+            if ((new string[] { "png", "jpg", "jpeg" }).Contains(fileInfo.Extension)
+                && imagem.ContentLength < 15000)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 }
