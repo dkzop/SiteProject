@@ -1,23 +1,11 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.Web;
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Web;
-using Umbraco.Web.Models;
 
 namespace WebsiteProject.Models
 {
     public class PersonModel
     {
-        //public Person(IPublishedContent content) : base(content)
-        //{
-        //}
-
-        ////public Person()
-        ////{
-        ////    Umbraco.Web.Composing.Current.UmbracoContext.
-        ////    base(null);
-        ////}
 
         [Display(Name = "Primeiro e último Nome")]
         
@@ -30,11 +18,11 @@ namespace WebsiteProject.Models
 
         [Display(Name = "Peso")]
 
-        public int Peso { get; set; }
+        public int? Peso { get; set; }
 
         [Display(Name = "Altura")]
 
-        public int Altura { get; set; }
+        public int? Altura { get; set; }
 
         [Display(Name = "Cor do Cabelo")]
         
@@ -48,12 +36,12 @@ namespace WebsiteProject.Models
         
         public Sexo SexoPessoa { get; set; }
 
-        [Display(Name = "Imagem")]
+        [Display(Name = "ImagemParaCarregar")]
 
-        public HttpPostedFileBase Imagem { get; set; }
+        public HttpPostedFileBase ImagemParaCarregar { get; set; }
 
-
-
+        [Display(Name = "ImagemUrl")]
+        public string ImagemUrl { get; set; }
 
     }
 }

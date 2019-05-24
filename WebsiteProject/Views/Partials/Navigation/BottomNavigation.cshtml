@@ -1,20 +1,20 @@
-﻿@model Umbraco.Web.Models.ContentModel
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage
 @{
     ViewBag.Title = "BottomNavigation";
-    var leftFooterTitle = Model.Content.Value<string>("leftFooterTitle");
-    var leftFooterText = Model.Content.Value<string>("leftFooterText");
-    var centerLeftFooterTitle = Model.Content.Value<string>("centerLeftFooterTitle");
-    var centerLeftFootersubTitle = Model.Content.Value<string>("centerLeftFootersubTitle");
-    var centerLeftFooterText1 = Model.Content.Value<string>("centerLeftFooterText1");
-    var centerLeftFooterText2 = Model.Content.Value<string>("centerLeftFooterText2");
-    var centerRightFooterTitle = Model.Content.Value<string>("centerRightFooterTitle");
-    var centerRightFooterText = Model.Content.Value<string>("centerRightFooterText");
-    var rightFooterTitle = Model.Content.Value<string>("rightFooterTitle");
-    var adress = Model.Content.Value<string>("adress");
-    var cityandPostalCode = Model.Content.Value<string>("cityandPostalCode");
-    var country = Model.Content.Value<string>("country");
-    var phoneNumber = Model.Content.Value<string>("phoneNumber");
-    var fax = Model.Content.Value<string>("fax");
+    var leftFooterTitle = Model.Value<string>("leftFooterTitle");
+    var leftFooterText = Model.Value<string>("leftFooterText");
+    var centerLeftFooterTitle = Model.Value<string>("centerLeftFooterTitle");
+    var centerLeftFootersubTitle = Model.Value<string>("centerLeftFootersubTitle");
+    var centerLeftFooterText1 = Model.Value<string>("centerLeftFooterText1");
+    var centerLeftFooterText2 = Model.Value<string>("centerLeftFooterText2");
+    var centerRightFooterTitle = Model.Value<string>("centerRightFooterTitle");
+    var centerRightFooterText = Model.Value<string>("centerRightFooterText");
+    var rightFooterTitle = Model.Value<string>("rightFooterTitle");
+    var adress = Model.Value<string>("adress");
+    var cityandPostalCode = Model.Value<string>("cityandPostalCode");
+    var country = Model.Value<string>("country");
+    var phoneNumber = Model.Value<string>("phoneNumber");
+    var fax = Model.Value<string>("fax");
 }
 
 <footer>
@@ -24,7 +24,7 @@
                 <h3>@leftFooterTitle</h3>
                 <p>
                     @leftFooterText
-                </p>    
+                </p>
             </div>
             <div class="col-md-3">
                 <h3>@centerLeftFooterTitle</h3>
