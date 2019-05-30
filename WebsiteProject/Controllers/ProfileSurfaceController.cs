@@ -18,6 +18,7 @@ namespace WebsiteProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult ChangeUsername(ChangeUsernameModel changeUsernameModel)
         {
+
             ViewBag.changeUsernameModel = changeUsernameModel;
             if (User.Identity.IsAuthenticated && ModelState.IsValid)
             {
@@ -30,7 +31,7 @@ namespace WebsiteProject.Controllers
                     FormsAuthentication.SetAuthCookie(changeUsernameModel.ConfirmNewUsername, false);
 
 
-                    return CurrentUmbracoPage();
+                    return RedirectToCurrentUmbracoPage();
                 }
                 else
                 {
@@ -38,7 +39,7 @@ namespace WebsiteProject.Controllers
                 }
             }
 
-            return CurrentUmbracoPage();
+            return RedirectToCurrentUmbracoPage();
         }
 
         // Change Password //
@@ -54,14 +55,14 @@ namespace WebsiteProject.Controllers
                 if (changePasswordModel.Password != changePasswordModel.NewPassword)
                 {
                     Membership.UpdateUser(user);
-                    return CurrentUmbracoPage();
+                    return RedirectToCurrentUmbracoPage();
                 }
                 else
                 {
                     ModelState.AddModelError("changepasswordInvalid", "Os dois campos são iguais ou a password antiga está errada.");
                 }
             }
-            return CurrentUmbracoPage();
+            return RedirectToCurrentUmbracoPage();
         }
 
         public ActionResult PersonData(PersonModel personModel)
@@ -91,9 +92,10 @@ namespace WebsiteProject.Controllers
                 }
 
                 Services.MemberService.Save(user);
+                
             }
 
-            return CurrentUmbracoPage();
+            return RedirectToCurrentUmbracoPage();
         }
 
         private bool Valid(HttpPostedFileBase imagem)

@@ -1,73 +1,97 @@
-﻿@model Umbraco.Web.Models.ContentModel
+﻿@using System.Web.Mvc.Html
+@using Umbraco.Web
+@using WebsiteProject.Controllers
+@using WebsiteProject.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ProfilePageModel>
+
+
 
 @{
     Layout = "Master.cshtml";
-    var image1 = Model.Content.Value<IPublishedContent>("image1").Url;
-    var imag1text = Model.Content.Value<string>("imag1text");
-    var image2 = Model.Content.Value<IPublishedContent>("image2").Url;
-    var image2text = Model.Content.Value<string>("image2text");
+    var membershipUser = Membership.GetUser();
+    var allUsers = Services.MemberService.GetAllMembers((int)membershipUser.ProviderUserKey);
+    var personModel = Model.Person;
 
 }
 
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginUmbracoForm("GalleryPage", "GalleryController", FormMethod.Get))
+    {
+        <section id="work" data-stellar-background-ratio="0.5">
+            <div class="container">
+                <div class="row">
 
-<!-- WORK -->
-<section id="work" data-stellar-background-ratio="0.5">
-    <div class="container">
-        <div class="row">
-
-            <div class="col-md-12 col-sm-12">
-                <div class="section-title">
+                    <div class="col-md-12 col-sm-12">
+                        <div class="section-title">
+                            <br />
+                            <br />
+                            <h2><font color="#000000">Our gallery</font></h2>
+                        </div>
+                    </div>
                     <br />
                     <br />
-                    <h2><font color="#000000">Our gallery</font></h2>
-                </div>
-            </div>
-            <br />
-            <br />
-            <div class="col-md-3 col-sm-6">
-                <!-- WORK THUMB -->
-                <div class="work-thumb">
-                    <img src="@image1" class="img-responsive" alt="Work">
 
-                    <div class="work-info">
-                        <h3>@imag1text</h3>
+
+                    @foreach (var item in allUsers)
+                    {
+                        <div class="col-md-3 col-sm-6">
+                            <!-- WORK THUMB -->
+
+                            <div class="work-thumb">
+                                <img src="@personModel.ImagemUrl" class="img-responsive" alt="Work">
+
+                                <div class="work-info">
+                                    <h3>@*@imag1text*@</h3>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    }
+
+
+                    <div class="col-md-3 col-sm-6">
+                        <!-- WORK THUMB -->
+                        <div class="work-thumb">
+                            <img src=@*"@image2"*@ class="img-responsive" alt="Work">
+
+                            <div class="work-info">
+                                <h3>@*@image2text*@</h3>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6">
-                <!-- WORK THUMB -->
-                <div class="work-thumb">
-                    <img src="@image2" class="img-responsive" alt="Work">
+                    <div class="col-md-3 col-sm-6">
+                        <!-- WORK THUMB -->
+                        <div class="work-thumb">
+                            @*<img src="@imagethree" class="img-responsive" alt="Work">*@
 
-                    <div class="work-info">
-                        <h3>@image2text</h3>
+                            <div class="work-info">
+                                @*<h3>@imagethreetext</h3>*@
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="col-md-3 col-sm-6">
-                <!-- WORK THUMB -->
-                <div class="work-thumb">
-                    @*<img src="@imagethree" class="img-responsive" alt="Work">*@
+                    <div class="col-md-3 col-sm-6">
+                        <!-- WORK THUMB -->
+                        <div class="work-thumb">
+                            @*<img src="@imagefour" class="img-responsive" alt="Work">*@
 
-                    <div class="work-info">
-                        @*<h3>@imagethreetext</h3>*@
+                            <div class="work-info">
+                                @*<h3>@imagefourtext</h3>*@
+                            </div>
+                        </div>
                     </div>
+
                 </div>
             </div>
 
-            <div class="col-md-3 col-sm-6">
-                <!-- WORK THUMB -->
-                <div class="work-thumb">
-                    @*<img src="@imagefour" class="img-responsive" alt="Work">*@
+        </section>
+    }
+}
+else
+{
+    Response.Redirect("~/home/");
+}
 
-                    <div class="work-info">
-                        @*<h3>@imagefourtext</h3>*@
-                    </div>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</section>

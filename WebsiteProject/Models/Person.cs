@@ -8,7 +8,7 @@ namespace WebsiteProject.Models
     {
 
         [Display(Name = "Primeiro e último Nome")]
-        
+        [Required]
         public string PrimeiroNome { get; set; }
 
         [Display(Name = "Data de Nascimento")]
