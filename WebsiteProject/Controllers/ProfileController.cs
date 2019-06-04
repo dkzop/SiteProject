@@ -48,7 +48,34 @@ namespace WebsiteProject.Controllers
 
                 return CurrentTemplate(returnModel);
 
+            returnModel.Person.ImagemUrl = avatar.Url;
+                if (personModel.ImagemParaCarregar != null)
+                {
+                    var newFileReference = Services.MediaService.CreateMedia("avatar", -1, "Image");
+                    if (!Valid(personModel.ImagemParaCarregar))
+                    {
+                        newFileReference.SetValue("umbracoFile", personModel.ImagemParaCarregar.InputStream);
+                        Services.MediaService.Save(newFileReference);
+
+                        user.SetValue("avatar", newFileReference.Id);
+                    }
+                }
+
+
+
             
+        }
+
+        private bool Valid(HttpPostedFileBase imagem)
+        {
+            var fileInfo = new FileInfo(imagem.FileName);
+            if ((new string[] { "png", "jpg", "jpeg" }).Contains(fileInfo.Extension)
+                && imagem.ContentLength < 15000)
+            {
+                return true;
+            }
+
+            return false;
         }
     }
 
