@@ -1,9 +1,6 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 using System.Web;
-using Umbraco.Core.Models.PublishedContent;
-using Umbraco.Web;
-using Umbraco.Web.Models;
 
 namespace WebsiteProject.Models
 {
@@ -21,11 +18,11 @@ namespace WebsiteProject.Models
 
         [Display(Name = "Peso")]
 
-        public int Peso { get; set; }
+        public int? Peso { get; set; }
 
         [Display(Name = "Altura")]
 
-        public int Altura { get; set; }
+        public int? Altura { get; set; }
 
         [Display(Name = "Cor do Cabelo")]
         
