@@ -43,10 +43,14 @@
                                     <div role="tabpanel" class="tab-pane fade in" id="sign_in">
                                         <form action="#" method="post">
                                             @Html.Partial("~/Views/Login/Login.cshtml", new WebsiteProject.Models.LoginModel())
+                                            <br />
+                                            <br />
+                                            @Html.Partial("~/Views/Email.cshtml")
                                         </form>
                                     </div>
                                 </div>
                             </div>
+
 
                         </div>
                     </div>
@@ -104,6 +108,7 @@ else
                                             @Html.Action("Register", "Register")
                                         </div>
                                     </div>
+
                                 }
                                 else
                                 {

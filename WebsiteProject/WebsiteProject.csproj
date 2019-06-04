@@ -466,16 +466,19 @@
     <Content Include="scripts\jquery.mixitup.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\galeriadeImagens.cshtml" />
     <Content Include="Views\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EmailController.cs" />
+    <Compile Include="Controllers\PersonGallery.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\ProfileSurfaceController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Models\AboutUs.cs" />
+    <Compile Include="Models\Email.cs" />
+    <Compile Include="Models\PersonGallery.cs" />
     <Compile Include="Models\ProfilePageModel.cs" />
     <Compile Include="Models\ChangePassword.cs" />
     <Compile Include="Models\ChangeUsername.cs" />
@@ -486,6 +489,7 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\Sexo.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -539,6 +543,8 @@
     <Content Include="Views\Logout.cshtml" />
     <Content Include="Views\Avatar.cshtml" />
     <Content Include="Views\ProfilePage.cshtml" />
+    <Content Include="Views\PersonGallery.cshtml" />
+    <Content Include="Views\Email.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -551,6 +557,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\Email\" />
+    <Folder Include="Views\Gallery\" />
     <Folder Include="Views\Partials\Register\" />
     <Folder Include="Views\Person\" />
     <Folder Include="Views\Profile\" />

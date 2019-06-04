@@ -15,12 +15,25 @@
             </div>
             <div class="navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    @foreach (var item in selection)
+                    @if (User.Identity.IsAuthenticated)
                     {
-                        <li>
-                            <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
-                        </li>
+                        foreach (var item in selection)
+                        {
+                            <li>
+                                <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
+                            </li>
+                        }
                     }
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        foreach (var item in selection)
+                        {
+                            <li>
+                                <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
+                            </li>
+                        }
+                    }
+
                     <li class="section-btn">
                         <a href="#" data-toggle="modal" data-target="#modal-form">
                             @if (!User.Identity.IsAuthenticated)
