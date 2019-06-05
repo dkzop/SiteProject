@@ -1,0 +1,103 @@
+﻿@using WebsiteProject.Controllers
+@using WebsiteProject.Models
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContactChildModel>
+@{
+    Layout = "Master.cshtml";
+
+
+}
+
+<section class="recent-posts">
+    <div class="container">
+        <iframe width="100" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=&amp;aq=&amp;sll=37.422023,-122.084337&amp;sspn=0.00357,0.008229&amp;ie=UTF8&amp;ll=37.421981,-122.084531&amp;spn=0.001785,0.004115&amp;t=m&amp;z=18&amp;output=embed"></iframe>
+        <div class="row">
+            @using (Html.BeginUmbracoForm<ContactChildController>("ChangePassword", FormMethod.Post, "form-horizontal"))
+            {
+                var contactsEntries = (ContactChildModel)ViewBag.contactsEntriesModel;
+
+                <div class="col-md-8">
+                    @*<h3>@title</h3>*@
+                    <hr>
+                    @*<p>@entryText</p>*@
+                    <br />
+                    <p id="feedback"></p>
+
+
+                    <form role="form" id="contact-form" name="contact-form" method="post" action="" class="contact-form">
+                        <div class="form-group col-md-6">
+                            <label class="sr-only" for="exampleInputEmail1">Your Name: *</label>
+                            @Html.TextBoxFor(m => contactsEntries.NomeCompleto, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label class="sr-only" for="exampleInputEmail1">Email: *</label>
+                            @Html.TextBoxFor(m => contactsEntries.Email, new { @class = "form-control" })
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                            <label class="sr-only" for="exampleInputEmail1">Subject:</label>
+                            @Html.TextBoxFor(m => contactsEntries.Orcamento, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            @Html.TextBoxFor(m => contactsEntries.Requisitos, new { @class = "form-control" })
+                        </div>
+                        <input id="submit-button" type="submit" class="btn btn-lg btn-info" value="Submit">
+                    </form>
+                </div>
+            }
+            <div class="col-md-4">
+                @*<h3>@rightTitle</h3>*@
+                <hr>
+                @*@rightText*@
+                <br />
+                <br />
+                <p class="black-text"><span class="orange">Address:</span> @*@adress</p>*@
+                <p class="black-text"><span class="orange">Telephone:</span> @*@phoneNumber</p>*@
+                <p class="black-text"><span class="orange">Fax:</span> @*@fax</p>*@
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function send_special_order() {
+        var data1 = $('#name').val();
+        var data2 = $('#subject').val();
+        var data3 = $('#email').val();
+        var data4 = $('#message').val();
+        $.ajax({
+            type: "POST",
+            url: "send.php",
+            dataType: "json",
+            data: ({ "name": data1, "subject": data2, "email": data3, "message": data4 }),
+            success: function () {
+
+            },
+            complete: function () {
+                $('#feedback').append('<p>Thank you for sending us a message. Our specialists will contact you as soon as possible.</p><p>Your message details are:</p>\n\
+                                <ul>\n\
+                                    <li>Name: <b>' + data1 + '</b></li>\n\
+                                    <li>Email: <b>' + data3 + '</b></li>\n\
+                                    <li>Subject: <b>' + data2 + '</b></li>\n\
+                                    <li>Message: <b>' + data4 + '</b></li>\n\
+                                </ul>\n\
+                                <p>If you want to change your information press the button:\n\
+                                <p><a href="#" id="send-more" class="btn btn-lg btn-info">edit info</a></p>');
+                $('#contact-form').slideUp();
+                $('#send-more').click(function (e) {
+                    e.preventDefault()
+                    $('#contact-form').slideDown();
+                    $('#feedback').html('');
+                });
+            }
+        });
+    }
+    $('#contact-form').submit(function () {
+        send_special_order();
+        return false;
+    });
+</script>
+
+

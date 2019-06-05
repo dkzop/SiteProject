@@ -16,7 +16,7 @@ namespace WebsiteProject.Controllers
             var user = Services.MemberService.GetById((int)membershipUser.ProviderUserKey);
             var returnModel = new ProfilePageModel(content.Content)
             {
-                Person = new Models.PersonModel()
+                Person = new PersonModel()
                 {
                     PrimeiroNome = user.GetValue<string>("primeironome"),
                     DatadeNascimento = user.GetValue<string>("datadenascimento"),
