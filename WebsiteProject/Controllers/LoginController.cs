@@ -7,31 +7,36 @@ namespace WebsiteProject.Controllers
 {
     public class LoginController : SurfaceController
     {
-        [HttpGet]
-        public ActionResult Login(string hello)
+        public ActionResult RenderLogin()
         {
-            ViewBag.hello = hello;
-            return PartialView();
+            return PartialView("Login", new LoginModel());
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model)
+        public ActionResult SubmitLogin(LoginModel loginModel, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                if (Membership.ValidateUser(model.Username, model.Password))
+                if (Membership.ValidateUser(loginModel.Username, loginModel.Password))
                 {
-                    FormsAuthentication.SetAuthCookie(model.Username, true);
-                }
-                else
-                {
-                    ModelState.AddModelError("", "O login está inválido");
+                    FormsAuthentication.SetAuthCookie(loginModel.Username, false);
+                    UrlHelper myHelper = new UrlHelper(HttpContext.Request.RequestContext);
+                    if (myHelper.IsLocalUrl(returnUrl))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else
+                    {
+                        TempData["Success"] = "Successfully logged in!";
+                        return Redirect("/home/");
+                    }
                 }
             }
-            return PartialView(model);
+            TempData["Error"] = "The username or password provided is incorrect.";
+            return CurrentUmbracoPage();
         }
-        
+
         public ActionResult Logout()
         {
             return PartialView("Logout", null);
@@ -42,7 +47,8 @@ namespace WebsiteProject.Controllers
             TempData.Clear();
             Session.Clear();
             FormsAuthentication.SignOut();
-            return RedirectToCurrentUmbracoPage();
+            TempData["Success"] = "Successfully logged out!";
+            return Redirect("/home/");
         }
     }
 }

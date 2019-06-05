@@ -21,6 +21,19 @@
         <![endif]-->
 </head>
 <body>
+    @if (TempData["Error"] != null)
+    {
+        <div id="note">
+            @TempData["Error"]
+        </div>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <div id="note">
+            @TempData["Success"]
+        </div>
+    }
 
     @Html.Partial("~/Views/Partials/Navigation/TopNavigation.cshtml")
     <main>

@@ -17,20 +17,23 @@ namespace WebsiteProject.Controllers
             var persons = new PersonGallery(content.Content);
             foreach (var item in allUsers)
             {
-                
 
                 var PrimeiroNome = item.GetValue<string>("primeironome");
 
                 var avatarId = item.GetValue<int>("avatar");
 
                 var avatar = UmbracoContext.MediaCache.GetById(avatarId);
-                
+
                 var umbUser = new UserModel();
 
                 umbUser.Nome = PrimeiroNome;
-                umbUser.Avatar = avatar;
-                umbUser.ImagemUrl = avatar.Url;
-                
+
+                if (item.GetValue("avatar") != null)
+                {
+                    umbUser.Avatar = avatar;
+                    umbUser.ImagemUrl = avatar.Url;
+                }
+
 
 
                 umbUsers.Add(umbUser);
@@ -40,7 +43,7 @@ namespace WebsiteProject.Controllers
             persons.UmbUsers = umbUsers;
 
             return CurrentTemplate(persons);
-        
+
         }
     }
 }
