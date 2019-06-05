@@ -27,7 +27,6 @@ else
 {
     using (Html.BeginUmbracoForm<RegisterController>("Register"))
     {
-        <fieldset data-ajax="true" data-ajax-update="#sign_up">
 
             @Html.ValidationSummary()
 
@@ -44,6 +43,5 @@ else
             @Html.ValidationMessageFor(m => m.Email)
             <br />
             <input type="submit" class="form-control" name="Register" value="Register">
-        </fieldset>
     }
 }

@@ -7,6 +7,8 @@ Custom Styles. Bootstrap Styles are default'
 * {
 }
 
+
+
 a, input, button {
     -webkit-transition: all ease .2s;
     -moz-transition: all ease .2s;
@@ -289,6 +291,22 @@ header {
         .navbar-default .navbar-brand span, .navbar-default .navbar-brand a span {
             color: #e74c3c;
         }
+
+#note {
+    position: absolute;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fde073;
+    text-align: center;
+    line-height: 1.5;
+    overflow: hidden;
+    -webkit-box-shadow: 0 0 5px black;
+    -moz-box-shadow: 0 0 5px black;
+    box-shadow: 0 0 5px black;
+}
+
 /*Main Navigaion Menu*/
 
 .dropdown:hover .dropdown-menu {

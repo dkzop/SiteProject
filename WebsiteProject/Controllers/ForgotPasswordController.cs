@@ -17,20 +17,21 @@ namespace WebsiteProject.Controllers
                 string email = member.Email;
                 if (!string.IsNullOrEmpty(email))
                 {
-                    string password = Membership.GeneratePassword(8, 0);
-                    Services.MemberService.SavePassword(member, password);
+                    string passwd = Membership.GeneratePassword(8, 0);
+                    Services.MemberService.SavePassword(member, passwd);
+                    TempData["Success"] = "Check your email to get your new password.";
 
                     SmtpClient client = new SmtpClient();
                     var message = new MailMessage("teste20@teste.com", email)
                     {
-                        Subject = "Nova Password",
-                        Body = "A sua nova password é: " + password
+                        Subject = "New Password",
+                        Body = "Your new password is: " + passwd
                     };
                     client.Send(message);
                 }
             }
-
-            return PartialView();
+            TempData["Error"] = "There is no account made with the provided email.";
+            return CurrentUmbracoPage();
         }
     }
 }

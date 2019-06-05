@@ -7,26 +7,29 @@
 }
 
 
-    <section id="work" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
+<section id="work" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
 
-                <div class="col-md-12 col-sm-12">
-                    <div class="section-title">
-                        <br />
-                        <br />
-                        <h2><font color="#000000">Our gallery</font></h2>
-                    </div>
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <br />
+                    <br />
+                    <h2><font color="#000000">Our members</font></h2>
+                    <span class="line-bar">...</span>
                 </div>
-                <br />
-                <br />
-                @foreach (var umbUser in Model.UmbUsers)
+            </div>
+            <br />
+            <br />
+            @foreach (var umbUser in Model.UmbUsers)
+            {
+                if (umbUser.Avatar != null)
                 {
                     <div class="col-md-3 col-sm-6">
                         <!-- WORK THUMB -->
 
                         <div class="work-thumb">
-                            <img src="@(umbUser.Avatar.Url)" class="img-responsive" alt="Work">
+                            <img src="@(umbUser.ImagemUrl)" class="img-responsive" alt="Work">
 
                             <div class="work-info">
                                 <h3>@umbUser.Nome</h3>
@@ -34,8 +37,23 @@
                         </div>
                     </div>
                 }
+                else
+                {
+                    <div class="col-md-3 col-sm-6">
+                        <!-- WORK THUMB -->
+
+                        <div class="work-thumb">
+                            <img src="~/images/Testing_in_Progress.gif" class="img-responsive" alt="Work">
+
+                            <div class="work-info">
+                                <h3>@umbUser.Nome</h3>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
 
 
-            </div>
         </div>
-    </section>
+    </div>
+</section>

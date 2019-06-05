@@ -24,18 +24,22 @@ namespace WebsiteProject.Controllers
             {
                 var membershipUser = Membership.GetUser();
                 var user = Services.MemberService.GetById((int)membershipUser.ProviderUserKey);
-                if (changeUsernameModel.NewUsername == changeUsernameModel.ConfirmNewUsername)
+                var allUsernames = Services.MemberService.GetByUsername(changeUsernameModel.NewUsername);
+                if ((changeUsernameModel.NewUsername == changeUsernameModel.ConfirmNewUsername) && (allUsernames == null))
                 {
                     user.Username = changeUsernameModel.NewUsername;
+                    
                     Services.MemberService.Save(user);
                     FormsAuthentication.SetAuthCookie(changeUsernameModel.ConfirmNewUsername, false);
 
+                    TempData["Success"] = "Username successfully changed.";
 
                     return RedirectToCurrentUmbracoPage();
                 }
                 else
                 {
-                    ModelState.AddModelError("changeusernameInvalid", "Os dois campos são diferentes.");
+                    TempData["Error"] = "Error changing username. Username already exists or New and Confirm Username aren't the same.";
+                    return RedirectToCurrentUmbracoPage();
                 }
             }
 
@@ -51,15 +55,16 @@ namespace WebsiteProject.Controllers
             if (User.Identity.IsAuthenticated && ModelState.IsValid)
             {
                 var user = Membership.GetUser();
-                user.ChangePassword(changePasswordModel.Password, changePasswordModel.NewPassword);
-                if (changePasswordModel.Password != changePasswordModel.NewPassword)
+                var password = user.GetPassword();
+                if ((changePasswordModel.Password != changePasswordModel.NewPassword) && (password == changePasswordModel.Password))
                 {
-                    Membership.UpdateUser(user);
+                    user.ChangePassword(changePasswordModel.Password, changePasswordModel.NewPassword);
+                    TempData["Success"] = "Password alterado com sucesso! ";
                     return RedirectToCurrentUmbracoPage();
                 }
                 else
                 {
-                    ModelState.AddModelError("changepasswordInvalid", "Os dois campos são iguais ou a password antiga está errada.");
+                    TempData["Error"] = "Password não alterada! ";
                 }
             }
             return RedirectToCurrentUmbracoPage();
@@ -81,7 +86,7 @@ namespace WebsiteProject.Controllers
                 if (personModel.ImagemParaCarregar != null)
                 {
                     var newFileReference = Services.MediaService.CreateMediaWithIdentity(personModel.PrimeiroNome, -1, "Image");
-                    if (!Valid(personModel.ImagemParaCarregar))
+                    if (Valid(personModel.ImagemParaCarregar))
                     {
                         
                         newFileReference.SetValue(Services.ContentTypeBaseServices, "umbracoFile", personModel.ImagemParaCarregar.FileName, personModel.ImagemParaCarregar.InputStream);
@@ -89,11 +94,19 @@ namespace WebsiteProject.Controllers
 
                         user.SetValue("avatar", newFileReference.Id);
                     }
+
+                    else
+                    {
+                        TempData["Error"] = "Image file extension invalid. Can only upload PNG, JPG and JPEG files.";
+                        return RedirectToCurrentUmbracoPage();
+                    }
                 }
 
                 Services.MemberService.Save(user);
                 
             }
+            TempData["Success"] = "Profile details saved.";
+
 
             return RedirectToCurrentUmbracoPage();
         }

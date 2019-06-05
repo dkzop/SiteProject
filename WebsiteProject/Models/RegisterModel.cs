@@ -15,7 +15,7 @@ namespace WebsiteProject.Models
 
         [Display(Name = "Email")]
         [Required]
-        [DataType(DataType.Password)]
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         public bool Success { get; set; }
