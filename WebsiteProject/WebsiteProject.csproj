@@ -469,6 +469,8 @@
     <Content Include="Views\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContactChildController.cs" />
+    <Compile Include="Controllers\ContactChildSurfaceController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
     <Compile Include="Controllers\PersonGallery.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
@@ -477,6 +479,7 @@
     <Compile Include="Controllers\ProfileSurfaceController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Models\AboutUs.cs" />
+    <Compile Include="Models\ContactChild.cs" />
     <Compile Include="Models\Email.cs" />
     <Compile Include="Models\PersonGallery.cs" />
     <Compile Include="Models\ProfilePageModel.cs" />
@@ -523,7 +526,7 @@
     <Content Include="Views\Partials\Navigation\TopNavigation.cshtml" />
     <Content Include="Views\Partials\Navigation\BottomNavigation.cshtml" />
     <Content Include="Views\home.cshtml" />
-    <Content Include="Views\contacts.cshtml" />
+    <Content Include="Views\Contact.cshtml" />
     <Content Include="Views\Partials\Navigation\Modal.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Conteudo.cshtml" />
@@ -557,6 +560,8 @@
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.2.6.1\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Views\ContactChild\" />
+    <Folder Include="Views\ContactEntries\" />
     <Folder Include="Views\Email\" />
     <Folder Include="Views\ForgotPassword\" />
     <Folder Include="Views\Gallery\" />
