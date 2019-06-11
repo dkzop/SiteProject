@@ -12,16 +12,15 @@ namespace WebsiteProject.Controllers
     public class ContactChildSurfaceController : SurfaceController
     {
         [HttpPost]
-        public ActionResult ContactChild(ContactChildModel contactChildModel)
+        public ActionResult ContactChild(ContactChildModel contactsEntriesModel)
         {
-            ViewBag.contactEntriesModel = contactChildModel; 
-            var contactentries = Services.ContentService.GetById(4362);
+            ViewBag.contactEntriesModel = contactsEntriesModel; 
             var contactChild = Services.ContentService.Create("contacto", 4362, "contactChild");
-            contactChild.SetValue("nomeCompleto", contactChildModel.NomeCompleto);
-            contactChild.SetValue("email", contactChildModel.Email);
-            contactChild.SetValue("numerodeTelefone", contactChildModel.NumerodeTelefone);
-            contactChild.SetValue("orcamento", contactChildModel.Orcamento);
-            contactChild.SetValue("requisitos", contactChildModel.Requisitos);
+            contactChild.SetValue("nomeCompleto", contactsEntriesModel.NomeCompleto);
+            contactChild.SetValue("email", contactsEntriesModel.Email);
+            contactChild.SetValue("numerodeTelefone", contactsEntriesModel.NumerodeTelefone);
+            contactChild.SetValue("orcamento", contactsEntriesModel.Orcamento);
+            contactChild.SetValue("requisitos", contactsEntriesModel.Requisitos);
 
             Services.ContentService.Save(contactChild);
 
