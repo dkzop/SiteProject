@@ -20,7 +20,6 @@ namespace WebsiteProject.Models
         public int NumerodeTelefone { get; set; }
 
         [Display(Name = "Orçamento")]
-        [DataType(DataType.Currency)]
         public int Orcamento { get; set; }
 
         [Display(Name = "Requisitos")]

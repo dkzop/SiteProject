@@ -3,6 +3,7 @@
 @{
     var site = Model.Root();
     var selection = site.Children.Where(x => x.IsVisible());
+    var profileselection = site.Children;
 }
 
 @Html.Partial("~/Views/Partials/Navigation/Modal.cshtml")
@@ -15,7 +16,7 @@
             </div>
             <div class="navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    @if (User.Identity.IsAuthenticated)
+                    @if (!User.Identity.IsAuthenticated)
                     {
                         foreach (var item in selection)
                         {
@@ -24,9 +25,9 @@
                             </li>
                         }
                     }
-                    @if (!User.Identity.IsAuthenticated)
+                    @if (User.Identity.IsAuthenticated)
                     {
-                        foreach (var item in selection)
+                        foreach (var item in profileselection)
                         {
                             <li>
                                 <a class="nav-link @(item.IsAncestorOrSelf(Model) ? "nav-link--active" : null)" href="@item.Url">@item.Name</a>
@@ -42,7 +43,7 @@
                             }
                             else
                             {
-                                <text>Profile</text>
+                                <text>Settings</text>
                             }
                         </a>
                     </li>

@@ -469,7 +469,6 @@
     <Content Include="Views\aboutUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ContactChildController.cs" />
     <Compile Include="Controllers\ContactChildSurfaceController.cs" />
     <Compile Include="Controllers\ForgotPasswordController.cs" />
     <Compile Include="Controllers\PersonGallery.cs" />
@@ -548,6 +547,7 @@
     <Content Include="Views\ProfilePage.cshtml" />
     <Content Include="Views\PersonGallery.cshtml" />
     <Content Include="Views\Email.cshtml" />
+    <Content Include="Views\Contacts.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
