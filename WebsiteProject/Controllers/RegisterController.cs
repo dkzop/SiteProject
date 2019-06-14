@@ -38,7 +38,6 @@ namespace WebsiteProject.Controllers
                 }
 
                 Membership.CreateUser(model.Username, model.Password, model.Email);
-                FormsAuthentication.SetAuthCookie(model.Username, false);
                 UrlHelper myHelper = new UrlHelper(HttpContext.Request.RequestContext);
                 TempData["Success"] = "Successfully registered!";
                 return CurrentUmbracoPage();
