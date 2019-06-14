@@ -38,13 +38,19 @@
                         <label class="col-lg-3 control-label">Confirm Username:</label>
                     </div>
                     @Html.TextBoxFor(m => changeUsernameModel.ConfirmNewUsername, new { @class = "form-control" })
+                    <br />
                     <input type="submit" value="Save Changes">
 
                 }
 
 
                 @Html.ValidationSummary()
-
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
 
             <div class="tab-pane" id="password">
@@ -54,17 +60,23 @@
                     var changePasswordModel = (ChangePasswordModel)ViewBag.changePasswordModel;
 
                     @Html.AntiForgeryToken()
-                    <div class="form-group">
-                        <label class="col-lg-3 control-label">Password:</label>
-                        @Html.TextBoxFor(m => changePasswordModel.Password, new { @class = "form-control" })
-                        <label class="col-lg-3 control-label">New Password:</label>
-                        @Html.TextBoxFor(m => changePasswordModel.NewPassword, new { @class = "form-control" })
-                        <input type="submit" value="Save Changes">
-                    </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">Password:</label>
+                    @Html.TextBoxFor(m => changePasswordModel.Password, new { @class = "form-control" })
+                    <label class="col-lg-3 control-label">New Password:</label>
+                    @Html.TextBoxFor(m => changePasswordModel.NewPassword, new { @class = "form-control" })
+                    <br />
+                    <input type="submit" value="Save Changes">
+                </div>
                 }
 
                 @Html.ValidationSummary()
-
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
             </div>
 
             <div class="tab-pane" id="personal">
@@ -98,7 +110,12 @@
                             @Html.EnumDropDownListFor(m => personModel.SexoPessoa, new { @class = "form-control" })
                             <br />
                             <input type="submit" value="Save Changes">
-
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
+                            <br />
                         </div>
                     </div>
                 }
