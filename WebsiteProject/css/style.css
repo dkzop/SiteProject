@@ -7,7 +7,25 @@ Custom Styles. Bootstrap Styles are default'
 * {
 }
 
+.modal-body {
+    height: 77vh;
+    position: relative;
+    padding: 20px;
+}
 
+.google-map {
+    border-radius: 100%;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+    .google-map iframe {
+        border: 0;
+        width: 300px;
+        height: 300px;
+    }
 
 a, input, button {
     -webkit-transition: all ease .2s;
@@ -19,7 +37,7 @@ a, input, button {
 body {
     font-family: Calibri, sans-serif;
     color: #a6a8a8;
-    font-size: 14px;
+    font-size: 17px;
 }
 /*Typography*/
 
@@ -298,7 +316,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background: #fde073;
+    background: #ededed;
     text-align: center;
     line-height: 1.5;
     overflow: hidden;
@@ -1742,6 +1760,7 @@ ul.dropdown-menu {
 }
 
 /* Columns */
+
 .one_half_pad {
     width: 44%
 }
@@ -1802,9 +1821,15 @@ ul.dropdown-menu {
     position: relative
 }
 
-.one_half {
+/*@media screen and (max-width:500px){
+    .one_half{
+        width:0%
+    }
+}*/
+
+/*.one_half {
     width: 48%
-}
+}*/
 
 .one_third {
     width: 30.5%

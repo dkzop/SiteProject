@@ -29,7 +29,7 @@ namespace WebsiteProject.Controllers
                     else
                     {
                         TempData["Success"] = "Successfully logged in!";
-                        return Redirect("/home/");
+                        return CurrentUmbracoPage();
                     }
                 }
             }
