@@ -9,49 +9,44 @@
 
 <section class="recent-posts">
     <div class="container">
-        <iframe width="1150" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=&amp;aq=&amp;sll=37.422023,-122.084337&amp;sspn=0.00357,0.008229&amp;ie=UTF8&amp;ll=37.421981,-122.084531&amp;spn=0.001785,0.004115&amp;t=m&amp;z=18&amp;output=embed"></iframe>
+        <iframe class="google-map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=&amp;aq=&amp;sll=37.422023,-122.084337&amp;sspn=0.00357,0.008229&amp;ie=UTF8&amp;ll=37.421981,-122.084531&amp;spn=0.001785,0.004115&amp;t=m&amp;z=18&amp;output=embed"></iframe>
         <div class="row">
 
-
-            <div class="col-md-8">
-                @*<h3>@title</h3>*@
-                <hr>
-                @*<p>@entryText</p>*@
+            @using (Html.BeginUmbracoForm<ContactChildSurfaceController>("ContactChild", null, new { @class = "form-horizontal" }, FormMethod.Post))
+            {
+                var contactsEntriesModel = (ContactChildModel)ViewBag.contactEntriesModel;
+                <div class="form-group">
+                    <p class="black-text">
+                        <span class="orange">Name:</span>
+                        @Html.TextBoxFor(m => contactsEntriesModel.NomeCompleto, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <p class="black-text">
+                        <span class="orange">Email:</span>
+                        @Html.TextBoxFor(m => contactsEntriesModel.Email, new { @class = "form-control" })
+                </div>
+                <div class="clearfix"></div>
+                <div class="form-group">
+                    <p class="black-text">
+                        <span class="orange">Número de Telefone:</span>
+                        @Html.TextBoxFor(m => contactsEntriesModel.NumerodeTelefone, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <p class="black-text">
+                        <span class="orange">Orçamento:</span>
+                        @Html.TextBoxFor(m => contactsEntriesModel.Orcamento, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <p class="black-text">
+                        <span class="orange">Requisitos:</span>
+                        @Html.TextBoxFor(m => contactsEntriesModel.Requisitos, new { @class = "form-control" })
+                </div>
+                <input id="submit-button" type="submit" class="btn btn-lg btn-info" value="Submit">
                 <br />
-                <p id="feedback"></p>
+                <br />
+                <br />
 
-            </div>
-                @using (Html.BeginUmbracoForm<ContactChildSurfaceController>("ContactChild", null, new { @class = "form-horizontal" }, FormMethod.Post))
-                {
-                    var contactsEntriesModel = (ContactChildModel)ViewBag.contactEntriesModel;
-                    <div class="form-group col-md-6">
-                        <p class="black-text">
-                            <span class="orange">Name:</span>
-                            @Html.TextBoxFor(m => contactsEntriesModel.NomeCompleto, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group col-md-6">
-                        <p class="black-text">
-                            <span class="orange">Email:</span>
-                            @Html.TextBoxFor(m => contactsEntriesModel.Email, new { @class = "form-control" })
-                    </div>
-                    <div class="clearfix"></div>
-                    <div class="form-group">
-                        <p class="black-text">
-                            <span class="orange">Número de Telefone:</span>
-                            @Html.TextBoxFor(m => contactsEntriesModel.NumerodeTelefone, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <p class="black-text">
-                            <span class="orange">Orçamento:</span>
-                            @Html.TextBoxFor(m => contactsEntriesModel.Orcamento, new { @class = "form-control" })
-                    </div>
-                    <div class="form-group">
-                        <p class="black-text">
-                            <span class="orange">Requisitos:</span>
-                            @Html.TextBoxFor(m => contactsEntriesModel.Requisitos, new { @class = "form-control" })
-                    </div>
-                    <input id="submit-button" type="submit" class="btn btn-lg btn-info" value="Submit">
-                }
+            }
         </div>
     </div>
 </section>

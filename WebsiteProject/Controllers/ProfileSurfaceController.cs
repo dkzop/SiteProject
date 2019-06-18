@@ -86,7 +86,7 @@ namespace WebsiteProject.Controllers
                 if (personModel.ImagemParaCarregar != null)
                 {
                     var newFileReference = Services.MediaService.CreateMediaWithIdentity(personModel.PrimeiroNome, -1, "Image");
-                    if (Valid(personModel.ImagemParaCarregar))
+                    if (!Valid(personModel.ImagemParaCarregar))
                     {
                         
                         newFileReference.SetValue(Services.ContentTypeBaseServices, "umbracoFile", personModel.ImagemParaCarregar.FileName, personModel.ImagemParaCarregar.InputStream);

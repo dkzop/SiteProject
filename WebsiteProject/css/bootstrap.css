@@ -6020,6 +6020,7 @@ button.close {
 }
 
 .modal-body {
+  height:72vh;
   position: relative;
   padding: 20px;
 }
